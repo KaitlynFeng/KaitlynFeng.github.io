@@ -1,0 +1,94 @@
+---
+layout: post
+title:  "前端笔记---HTML常用标签!"
+date:   2022-02-22 14:58:26 +0800
+categories: htmll
+---
+# 一、a 标签的用法
+1、作用：标签定义超链接，用于从一张页面链接到另一张页面
+
+2、属性：
+> * href 用于指定超链接目标的 URL
+```
+<a href="http://www.w3school.com.cn">W3School</a>
+```
+网址有三种表示形式，均可使用。
+
+路径可用绝对或相对路径，即指向另一个站点或站内的某个文件。
+
+> * target 用于规定在何处打开链接文档
+
+***_blank*** 浏览器总在一个新打开、未命名的窗口中载入目标文档。
+
+***_self*** 这个目标的值对所有没有指定目标的 <a> 标签是默认目标，它使得目标文档载入并显示在相同的框架或者窗口中作为源文档。这个目标是多余且不必要的，除非和文档标题 <base> 标签中的 target 属性一起使用。
+
+***_parent*** 这个目标使得文档载入父窗口或者包含来超链接引用的框架的框架集。如果这个引用是在窗口或者在顶级框架中，那么它与目标 _self 等效。
+
+***_top*** 这个目标使得文档载入包含这个超链接的窗口，用 _top 目标将会清除所有被包含的框架并将文档载入整个浏览器窗口。
+  
+> * download 用于性规定被下载的超链接目标
+
+# 二、img 标签的用法
+1、作用：发出 GET 请求，展示一张图片
+  
+2、属性：
+> * alt 规定图像的替换文本
+> * src 规定显示图像的地址
+
+3、事件
+> * onload 属性在对象已加载时触发，onload 常用在 <body> 中，一旦完全加载所有内容（包括图像、脚本文件、CSS 文件等），就执行一段脚本。
+> * onerror 错误发生时运行的脚本，可以进行图片补救。
+  
+# 三、table 标签的用法
+  
+1、< table > 标签定义 HTML 表格
+  
+2、常用标签
+> * < tr > 元素定义表格行，< th > 元素定义表头，< td > 元素定义表格单元
+> * < thead > 元素用于对 HTML 表格中的表头内容进行分组
+> * < tbody > 标签表格主体（正文）
+> * < tfoot > 元素用于对 HTML 表格中的表注（页脚）内容进行分组
+  
+```javascript
+  <html>
+<head>
+<style type="text/css">
+thead {color:green}
+tbody {color:blue;height:50px}
+tfoot {color:red}
+</style>
+</head>
+<body>
+
+<table border="1">
+  <thead>
+    <tr>
+      <th>Month</th>
+      <th>Savings</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr>
+      <td>January</td>
+      <td>$100</td>
+    </tr>
+    <tr>
+      <td>February</td>
+      <td>$80</td>
+    </tr>
+  </tbody><html>
+
+  <tfoot>
+    <tr>
+      <td>Sum</td>
+      <td>$180</td>
+    </tr>
+  </tfoot>
+</table>
+
+</body>
+</html>
+```
+    
+    
