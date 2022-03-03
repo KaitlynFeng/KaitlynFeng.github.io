@@ -2,7 +2,7 @@
 layout: post
 title:  "Frontend Note"
 date:   2022-03-02 15:58:26 +0800
-categories: first try
+categories: first-try
 ---
 # 前端学习-浅析 URL
 ------
