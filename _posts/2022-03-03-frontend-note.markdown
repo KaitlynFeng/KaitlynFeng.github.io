@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Hello World!"
+title:  "Frontend Note"
 date:   2022-03-02 15:58:26 +0800
 categories: first try
 ---
