@@ -5,9 +5,8 @@ date:   2022-03-03 14:58:26 +0800
 categories: javascript
 ---
 
-# JavaScript的历史
 
-[toc]
+# JavaScript的历史
 
 ### 1、JavaScript的诞生
 
