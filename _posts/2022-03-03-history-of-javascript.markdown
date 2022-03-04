@@ -10,7 +10,7 @@ categories: javascript
     - [2、JavaScript与ECMAScript的关系](#2javascript与ecmascript的关系)
     - [3、JavaScript与Java的关系](#3javascript与java的关系)
     - [4、JavaScript的版本](#4javascript的版本)
-# JavaScript的历史
+
 
 ### 1、JavaScript的诞生
 
