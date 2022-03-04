@@ -1,0 +1,101 @@
+---
+layout: post
+title:  "CSS 知识总结"
+date:   2022-03-02 15:58:26 +0800
+categories: first-try
+---
+# 前端学习-CSS 知识总结
+
+# 一、动画
+
+## 1、动画的原理
+动画的原理是人脑的“bug”，由许多静止的画面（帧），以一定的速度（如每秒 30 张）连续播放时，肉眼因视觉残像产生错觉，而误以为是活动的画面。
+
+概念：
+
+* 帧：每个静止的画面都叫帧
+* 播放速度：每秒 24 帧（影视）或者每秒 30 帧（游戏）
+
+## 2、一个最简单的例子
+
+将 div 从左往右移动（用 left 实现）
+
+```HTML
+<!DOCTYPE html>
+<html lang="zh_CN">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <style>
+    #demo {
+      border: 1px solid red;
+      width: 100px;
+      height: 100px;
+      position: relative;
+      left: 0px;
+    }
+  </style>
+  <script>
+    var n = 1
+    var max = 300
+    var speed = 1
+    var id = setInterval(() => {
+      if (n > max) {
+        clearInterval(id)
+      }
+      demo.style.left = n + "px"
+      n += speed
+    }, 1000 / 60)
+  </script>
+</head>
+
+<body>
+  <div id="demo"></div>
+</body>
+
+</html>
+
+```
+原理：每过一段时间（用 setInterval 做到，将 div 移动一小段距离，直到移动到目标地点。
+
+注意性能：
+* 按 esc 打开 console，打开 Rendering 并勾选 Paint flashing，绿色表示重新绘制（repaint）了
+* CSS 渲染过程依次包含布局、绘制、合成
+* 其中布局和绘制有可能被忽略
+
+# 二、浏览器渲染原理
+
+## 1、步骤
+
+> * 1. 根据 HTML 标记并构建 HTML 树（DOM）
+> * 2. 根据 CSS 构建 CSS 树（CSSOM）
+> * 3. 将两棵树合并成一棵渲染树（Render Tree）
+> * 4. layout 布局（文档流、盒模型、计算大小和位置）
+> * 5. paint 绘制（把边框颜色、文字颜色、阴影等画出来）
+> * 6. composite 合成（根据层叠关系展示画面）
+
+三棵树示意图：
+ <img src="/images/posts/css-notes/image1.png" width="400">
+ 
+## 2、更新样式
+一般我们用 JS 来更新样式：
+
+* ```div.style.background = "red"```
+* ```div.style.display = "none"```
+* ```div.classList.add("red")```
+* ```div.remove() // 直接删掉节点```
+
+## 3、三种更新方法
+
+### 3.1、JS / CSS > 样式 > 布局 > 绘制 > 合成（全走一遍）
+ <img src="/images/posts/css-notes/image2.png" width="400">
+eg：***div.remove()***，会触发当前元素消失，其他元素重新布局（layout）和绘制（paint），最后合成（composite）。
+### 3.2、JS / CSS > 样式 > 绘制 > 合成（跳过layout）
+ <img src="/images/posts/css-notes/image3.png" width="400">
+eg：改变背景颜色，直接重新绘制（paint），最后合成（composite）即可。
+### 3.3、JS / CSS > 样式 > 合成(跳过 layout 和 paint)
+ <img src="/images/posts/css-notes/image4.png" width="400">
+ eg：改变 transform，直接合成（composite）即可.
+
+
