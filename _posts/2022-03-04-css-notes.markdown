@@ -76,7 +76,8 @@ categories: first-try
 > * 6. composite 合成（根据层叠关系展示画面）
 
 三棵树示意图：
- <img src="/images/posts/css-notes/image1.png" width="400">
+
+ <img src="/images/posts/css-notes/image1.png" width="600">
  
 ## 2、更新样式
 一般我们用 JS 来更新样式：
@@ -90,12 +91,90 @@ categories: first-try
 
 ### 3.1、JS / CSS > 样式 > 布局 > 绘制 > 合成（全走一遍）
  <img src="/images/posts/css-notes/image2.png" width="400">
+ 
 eg：***div.remove()***，会触发当前元素消失，其他元素重新布局（layout）和绘制（paint），最后合成（composite）。
 ### 3.2、JS / CSS > 样式 > 绘制 > 合成（跳过layout）
  <img src="/images/posts/css-notes/image3.png" width="400">
+ 
 eg：改变背景颜色，直接重新绘制（paint），最后合成（composite）即可。
 ### 3.3、JS / CSS > 样式 > 合成(跳过 layout 和 paint)
  <img src="/images/posts/css-notes/image4.png" width="400">
+ 
  eg：改变 transform，直接合成（composite）即可.
 
+# 三、CSS 动画的两种做法
 
+## 1、transition
+
+transition 可以为一个元素在不同状态之间切换的时候定义不同的过渡效果，可以理解为补充中间帧。
+
+### 1.1、语法
+
+* transition: 属性名 时长 过渡方式 延迟
+
+  ○ ```transition: left 200ms linear```
+  
+* 可以用逗号分隔两个不同的属性
+
+  ○ ```transition: left 200ms, top 400ms```
+  
+* 可以用 all 代表全部属性
+
+  ○ ```transition: all 200ms```
+  
+* 过渡方式有：linear | ease | ease-in | ease-out | ease-in-out | cubic-bezier | step-start | step-end | steps
+
+  
+## 2、animation
+
+animation 属性用来指定一组或多组动画
+
+### 2.1、语法
+
+* animation 缩写语法：```animation: 时长 | 过渡方式 | 延迟  | 次数 | 方向 | 填充模式 | 是否暂停 | 动画名;```
+
+> * 时长：单位是 s 或 ms
+> * 过渡方式：跟 transition 取值一样，比如 linear
+> * 延迟：单位是 s 或 ms
+> * 次数：例如 2 或者	1.4  或者 infinite
+> * 方向：reverse | alternate | alternate-reverse
+
+* @keyframe 语法：
+
+  ○ from to
+  
+  ```CSS
+  @keyframes slidein {
+    from {
+      transform: translateX(0%);
+    }
+
+    to {
+      transform: translateX(100%);
+    }
+  }
+  
+○ 百分数
+```CSS
+@keyframes identifier {
+  0% {
+    top: 0;
+    left: 0;
+  }
+
+  20% {
+    top: 50px;
+  }
+
+  45%,
+  69% {
+    left: 50px;
+  }
+
+  100% {
+    top: 100px;
+    left: 100%;
+  }
+}
+  
+  
