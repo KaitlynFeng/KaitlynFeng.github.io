@@ -155,27 +155,27 @@ animation 属性用来指定一组或多组动画
   }
 ```
 
-○ 百分数
-```CSS
-@keyframes identifier {
-  0% {
-    top: 0;
-    left: 0;
-  }
+  ○ 百分数
+  ```CSS
+  @keyframes identifier {
+    0% {
+      top: 0;
+      left: 0;
+    }
 
-  20% {
-    top: 50px;
-  }
+    20% {
+      top: 50px;
+    }
 
-  45%,
-  69% {
-    left: 50px;
-  }
+    45%,
+    69% {
+      left: 50px;
+    }
 
-  100% {
-    top: 100px;
-    left: 100%;
+    100% {
+      top: 100px;
+      left: 100%;
+    }
   }
-}
-```  
-  
+  ```  
+
