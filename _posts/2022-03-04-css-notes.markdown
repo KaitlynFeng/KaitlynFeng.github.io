@@ -153,7 +153,8 @@ animation 属性用来指定一组或多组动画
       transform: translateX(100%);
     }
   }
-  
+```
+
 ○ 百分数
 ```CSS
 @keyframes identifier {
@@ -176,5 +177,5 @@ animation 属性用来指定一组或多组动画
     left: 100%;
   }
 }
-  
+```  
   
