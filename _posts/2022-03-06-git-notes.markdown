@@ -1,0 +1,10 @@
+---
+layout: post
+title:  "git 命令"
+date:   2022-03-06 15:58:26 +0800
+categories: first-try
+---
+# Git命令
+
+[远程仓库使用](http://git-scm.com/book/zh/v2/Git-%E5%9F%BA%E7%A1%80-%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93%E7%9A%84%E4%BD%BF%E7%94%A8) 
+
