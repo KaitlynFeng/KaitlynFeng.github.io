@@ -30,7 +30,6 @@ Check out the [Jekyll docs][jekyll-docs] for more info on how to get the most ou
 
 
 
-web web web 
+local local local 
 
-
-web web web 
+local local local 
