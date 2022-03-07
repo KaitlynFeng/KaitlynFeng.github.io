@@ -5,11 +5,10 @@ date:   2022-03-03 14:58:26 +0800
 categories: javascript
 ---
 
-- [JavaScript的历史](#javascript的历史)
-    - [1、JavaScript的诞生](#1javascript的诞生)
-    - [2、JavaScript与ECMAScript的关系](#2javascript与ecmascript的关系)
-    - [3、JavaScript与Java的关系](#3javascript与java的关系)
-    - [4、JavaScript的版本](#4javascript的版本)
+- [1、JavaScript的诞生](#1javascript的诞生)
+- [2、JavaScript与ECMAScript的关系](#2javascript与ecmascript的关系)
+- [3、JavaScript与Java的关系](#3javascript与java的关系)
+- [4、JavaScript的版本](#4javascript的版本)
 
 
 ### 1、JavaScript的诞生
@@ -58,4 +57,4 @@ JavaScript的基本语法和对象体系，是模仿Java而设计的。但是，
 
 2007年10月，ECMAScript 4.0版草案发布，对3.0版做了大幅升级，预计次年8月发布正式版本。草案发布后，由于4.0版的目标过于激进，各方对于是否通过这个标准，发生了严重分歧。以Yahoo、Microsoft、Google为首的大公司，反对JavaScript的大幅升级，主张小幅改动；以JavaScript创造者Brendan Eich为首的Mozilla公司，则坚持当前的草案。
 
-2015年6月，ECMAScript 6正式发布，并且更名为“ECMAScript 2015”。这是因为TC39委员会计划，以后每年发布一个ECMAScirpt的版本，下一个版本在2016年发布，称为“ECMAScript 2016”。
+2015年6月，ECMAScript 6正式发布，并且更名为“ECMAScript 2015”。这是因为TC39委员会计划，以后每年发布一个ECMA Scirpt的版本，下一个版本在2016年发布，称为“ECMAScript 2016”。
