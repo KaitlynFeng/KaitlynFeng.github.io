@@ -23,3 +23,8 @@ a.toString = ‘xxx’;
 // 此时b.toString = ‘xxx’;
 ```
  <img src="/images/posts/js-notes/image2.png" width="600">
+ 
+ 
+ 适合入门[《网道 JavaScript 教程》](https://wangdoc.com/javascript/)
+ 
+ 适合进阶[《你不知道的 JavaScript（上卷）》](https://book.douban.com/subject/26351021/)
