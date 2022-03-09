@@ -1,0 +1,24 @@
+---
+layout: post
+title:  "Javascript与内存"
+date:   2022-03-09 14:58:26 +0800
+categories: javascript
+---
+
+```
+var a = {};
+var b = {};
+// a.toString === b.toString;  out:true
+// a与b创建时为空，指向各自地址，由于toString属于prototype，不用自己写，可直接// 调用，但对a中toString修改时，则是在自己地址创建新toString；b中依旧没有toString，// 调用prototype中。
+a.toString = ‘xxx’;
+b.toString = #13
+```
+
+
+```
+var a = {};
+var b = a; // a与b指向同一地址
+// a.toString === b.toString;  out:true
+a.toString = ‘xxx’;
+// 此时b.toString = ‘xxx’;
+```
