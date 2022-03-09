@@ -13,7 +13,7 @@ var b = {};
 a.toString = ‘xxx’;
 b.toString = #13
 ```
-
+ <img src="/images/posts/js-notes/image1.png" width="600">
 
 ```
 var a = {};
@@ -22,3 +22,4 @@ var b = a; // a与b指向同一地址
 a.toString = ‘xxx’;
 // 此时b.toString = ‘xxx’;
 ```
+ <img src="/images/posts/js-notes/image2.png" width="600">
