@@ -1,21 +1,30 @@
 ---
 layout: post
-title:  "Javascript与内存"
+title:  "Javascript notes"
 date:   2022-03-09 14:58:26 +0800
 categories: javascript
 ---
 
-```
+
+
+# 一、Javascript与内存
+
+## 1、prototype是原型对象
+
+toString是原型对象上的属性。
+
+```javascript
 var a = {};
 var b = {};
 // a.toString === b.toString;  out:true
-// a与b创建时为空，指向各自地址，由于toString属于prototype，不用自己写，可直接// 调用，但对a中toString修改时，则是在自己地址创建新toString；b中依旧没有toString，// 调用prototype中。
+// a与b创建时为空，指向各自地址，由于toString属于prototype，不用自己写，可直接调用，所以是true。
 a.toString = ‘xxx’;
 b.toString = #13
+// 但对a中toString修改时，则是在自己地址创建新toString；b中依旧没有toString，所以是false。
 ```
  <img src="/images/posts/js-notes/image1.png" width="600">
 
-```
+```javascript
 var a = {};
 var b = a; // a与b指向同一地址
 // a.toString === b.toString;  out:true
@@ -28,3 +37,141 @@ a.toString = ‘xxx’;
  适合入门[《网道 JavaScript 教程》](https://wangdoc.com/javascript/)
  
  适合进阶[《你不知道的 JavaScript（上卷）》](https://book.douban.com/subject/26351021/)
+
+# 二、javascript语法
+
+## 1、冒号表达式
+
+```表达式1 ? 表达式2 : 表达式3```
+
+If 表达式1为真，则表达式2；If 表达式1为假，则表达式3；
+
+## 2、&& 短路逻辑
+```A && B && C && D```
+ * 取第一个假值或 D
+ * 并不会取 true / false
+
+用法举例：fn && fn()，意思是如果 fn 存在，就执行 fn()
+
+## 3、|| 短路逻辑
+```A || B || C || D```
+ * 取第一个真值或 D
+ * 并不会取 true / false
+ 
+用法举例：a = a || 100，意思是如果 a 不存在，就给它赋值为 100
+
+ <img src="/images/posts/js-notes/image3.png" width="600">
+ 
+# 三、JavaScript数据类型
+
+## 1、七种数据类型
+ * 数字 number
+ * 字符串 string
+ * 布尔 bool
+ * 符号 symbol
+ * 空 undefined
+ * 空 null
+ * 对象 object
+ * 总结：四基两空一对象
+
+数组、函数、日期不是数据类型，它们都属于 object。
+
+## 2、特殊值
+
+ * 正0和负0，都等于 0，但还是有区别的，要严谨。
+ * 无穷大 Infinity 、+Infinity 、-Infinity
+
+<img src="/images/posts/js-notes/image4.png" width="600">
+
+ * 无法表示的数字，NaN (Not a Number)表示无法表示的数字，但它仍旧是一个数字。
+ 
+<img src="/images/posts/js-notes/image5.png" width="600">
+
+<img src="/images/posts/js-notes/image6.png" width="600">
+
+
+## 3、64位浮点数
+
+<img src="/images/posts/js-notes/image7.png" width="600">
+
+ * 符号占 1 位
+ * 指数占 11 位（-1023 ~ 1024）
+ * 有效数字占 52 位（开头的 1 省略）
+ 
+## 4、转义（用另一种写法表示你想要的东西）
+
+```
+ 'it\'s ok' // 这就是转义
+ "it's ok"
+ `it's ok`
+```
+
+ * \' 表示 '
+ * \" 表示 "
+ * \n 表示换行
+ * \r 表示回车
+ * \t 表示 tab 制表符
+ * \\ 表示 \
+ * \uFFFF 表示对应的 Unicode 字符
+ * \xFF 表示前 256 个 Unicode 字符
+ 
+## 5、五个falsy值
+
+  **falsy 就是相当于 false 但又不是 false 的值，除了五个 falsy 值，其他都是真**
+  
+ * undefined
+ * null
+ * 0
+ * NaN
+ * ''
+
+## 6、let声明
+
+ * 遵循块作用域，即使用范围不能超出 { }
+ * 不能重复申明
+ * 可以赋值，也可以不赋值
+ * 必须先声明再使用，否则报错
+ * 全局声明的 let 变量，不会变成 window 的属性
+
+<img src="/images/posts/js-notes/image8.png" width="600">
+
+[补充阅读](https://zhuanlan.zhihu.com/p/28140450)
+
+## 7、 const 声明
+
+跟 let 几乎一样，只有一条不一样：声明时就要赋值，赋值后不能改。
+
+## 8、类型转换
+
+数字转字符串
+```
+number => string
+String(n)
+n + ''
+```
+字符串转数字
+```
+string => number
+Number(s)
+parseInt(s) / parseFloat(s)
+s - 0
++s
+```
+其他转布尔
+```
+x => bool
+Boolean(x)
+!!x
+```
+其他喜欢字符串
+```
+x => string
+String(x)
+x.toString()
+```
+
+<img src="/images/posts/js-notes/image9.png" width="600">
+
+## 9、拓展阅读
+
+[js秘密花园](https://bonsaiden.github.io/JavaScript-Garden/zh/)
