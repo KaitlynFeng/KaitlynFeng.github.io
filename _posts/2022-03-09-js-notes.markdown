@@ -10,7 +10,7 @@ categories: javascript
 - [二、javascript语法](#二javascript语法)
   - [1、冒号表达式](#1冒号表达式)
   - [2、&& 短路逻辑](#2-短路逻辑)
-  - [3、||||短路逻辑](#3短路逻辑)
+  - [3、```||||```短路逻辑](#3短路逻辑)
 - [三、JavaScript数据类型](#三javascript数据类型)
   - [1、七种数据类型](#1七种数据类型)
   - [2、特殊值](#2特殊值)
@@ -69,14 +69,14 @@ If 表达式1为真，则表达式2；If 表达式1为假，则表达式3；
 
 用法举例：fn && fn()，意思是如果 fn 存在，就执行 fn()
 
-## 3、||||短路逻辑
+## 3、```||||```短路逻辑
 ```A || B || C || D```
  * 取第一个真值或 D
  * 并不会取 true / false
  
-用法举例：a = a || 100，意思是如果 a 不存在，就给它赋值为 100
+用法举例：```a = a || 100```，意思是如果 a 不存在，就给它赋值为 100
 
- <img src="/images/posts/js-notes/image3.png" width="600">
+ <img src="/images/posts/js-notes/image3.png" width="400">
  
 # 三、JavaScript数据类型
 
@@ -88,7 +88,8 @@ If 表达式1为真，则表达式2；If 表达式1为假，则表达式3；
  * 空 undefined
  * 空 null
  * 对象 object
- * 总结：四基两空一对象
+
+总结：四基两空一对象
 
 数组、函数、日期不是数据类型，它们都属于 object。
 
@@ -103,7 +104,7 @@ If 表达式1为真，则表达式2；If 表达式1为假，则表达式3；
  
 <img src="/images/posts/js-notes/image5.png" width="600">
 
-<img src="/images/posts/js-notes/image6.png" width="600">
+<img src="/images/posts/js-notes/image6.png" width="200">
 
 
 ## 3、64位浮点数
@@ -122,14 +123,14 @@ If 表达式1为真，则表达式2；If 表达式1为假，则表达式3；
  `it's ok`
 ```
 
- * \' 表示 '
- * \" 表示 "
- * \n 表示换行
- * \r 表示回车
- * \t 表示 tab 制表符
- * \\ 表示 \
- * \uFFFF 表示对应的 Unicode 字符
- * \xFF 表示前 256 个 Unicode 字符
+ * ```\'``` 表示 '
+ * ```\"```表示 "
+ * ```\n``` 表示换行
+ * ```\r``` 表示回车
+ * ```\t``` 表示 tab 制表符
+ * ```\\``` 表示 \
+ * ```\uFFFF``` 表示对应的 Unicode 字符
+ * ```\xFF``` 表示前 256 个 Unicode 字符
  
 ## 5、五个falsy值
 
@@ -149,7 +150,7 @@ If 表达式1为真，则表达式2；If 表达式1为假，则表达式3；
  * 必须先声明再使用，否则报错
  * 全局声明的 let 变量，不会变成 window 的属性
 
-<img src="/images/posts/js-notes/image8.png" width="600">
+<img src="/images/posts/js-notes/image8.png" width="350">
 
 [补充阅读](https://zhuanlan.zhihu.com/p/28140450)
 
