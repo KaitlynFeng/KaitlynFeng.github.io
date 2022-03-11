@@ -196,7 +196,20 @@ x.toString()
 # 四、JavaScript对象
 
 ## 1、对象的定义
+
  * 无序的数据集合
  * 键值对的集合
 
+## 2、写法
 
+```javascript
+let obj = { 'name': 'jack', 'age': 18 }  // name是键key，jack是值value
+let obj = new Object({ 'name': 'jack' })
+```
+
+细节：
+ * **键名是字符串**，不是标识符，可以包含任意字符
+ * 引号可省略，省略之后就只能写标识符或者内容是纯数字的字符串
+ * 就算引号省略了，键名也还是字符串
+ * 属性名：每个 key 都是对象的属性名（property）
+ * 属性值：每个 value 都是对象的属性值
