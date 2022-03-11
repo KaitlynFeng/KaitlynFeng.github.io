@@ -213,3 +213,23 @@ let obj = new Object({ 'name': 'jack' })
  * 就算引号省略了，键名也还是字符串
  * 属性名：每个 key 都是对象的属性名（property）
  * 属性值：每个 value 都是对象的属性值
+
+## 3、属性名
+
+ * 奇怪的属性名,所有属性名会自动变成字符串。
+ * ```Object.keys(obj)``` 可以得到 obj 的所有 key
+
+```javascript
+let obj = {
+  1: 'a',
+  3.2: 'b',
+  1e2: true,
+  1e-2: true,
+  .234: true,
+  0xFF: true
+};
+Object.keys(obj)
+=> ["1", "100", "255", "3.2", "0.01", "0.234"] // 0xFF会自动转换成"0.234"，若不想转换，加''。
+```
+<img src = >
+
