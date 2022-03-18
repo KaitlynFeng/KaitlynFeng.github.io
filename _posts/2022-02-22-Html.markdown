@@ -12,7 +12,7 @@ categories: htmll
 ```
 <a href="http://www.w3school.com.cn">W3School</a>
 ```
-网址有三种表示形式，均可使用。
+网址有三种表示形式，均可用。
 
 路径可用绝对或相对路径，即指向另一个站点或站内的某个文件。
 
