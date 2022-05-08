@@ -15,7 +15,7 @@ categories: javascript
 
 DOM级别一共可以分为四个级别：DOM0级、DOM1级、DOM2级和DOM3级。而DOM事件分为3个级别：DOM 0级事件处理，DOM 2级事件处理和DOM 3级事件处理。由于DOM 1级中没有事件的相关内容，所以没有DOM 1级事件。
 
-### 1、DOM 0级事件
+### 2.1、DOM 0级事件
 
 ```javascript
 let btn = document.getElementById('btn')
@@ -28,7 +28,7 @@ btn.onclick = function btnClick(){
 
 很简单，但是也仅限于此。DOM 0级事件无法使元素绑定多个同类型事件，如果你想实现3、4种不同功能的点击事件，使用这种写法是无法达成的。
 
-### 2、DOM 2级事件
+### 2.2、DOM 2级事件
 
 ```javascript
 let btn = document.getElementById('btn')
@@ -38,7 +38,7 @@ btn.addEventListener("click", btnClickAgain, false);
 ```
 DOM 2级事件在0级事件的基础上弥补了这种缺陷，允许为同一个事件绑定不同的处理函数，同时定义了```.addEventListener()```和```.removeEventListener()```两种方法，用来绑定/解绑事件。```addEventListener()```方法一般会接收三个参数```addEventListener(eventType,callBack,useCapture)```，分别表示事件名称类型，可执行的回调函数及是否在捕获阶段执行回调（默认为false）。
 
-### 3、DOM 3级事件
+### 2.3、DOM 3级事件
 3级事件在2级事件的基础上添加了更多的事件类型，同时允许一些自定义事件存在。
 > * UI事件，当用户与页面上的元素交互时触发，如：load、scroll
 > * 焦点事件，当元素获得或失去焦点时触发，如：blur、focus
@@ -50,7 +50,7 @@ DOM 2级事件在0级事件的基础上弥补了这种缺陷，允许为同一�
 > * 变动事件，当底层DOM结构发生变化时触发，如：DOMsubtreeModified
 
 
-# 2、事件流 & 事件模型
+# 二、事件流 & 事件模型
 ## 1、事件流
 可以尝试把页面理解为一个二维的平面，想象有一张白纸，我们在这张纸上画下了一层一层的同心圆，当我们用手指按住最内的圆圈时，也按住了纸上所有的同心圆，也按住了整张纸。所以单击事件不仅仅发生在被击中的元素上，换句话说，当我们用鼠标单击其中一个元素时，你也是在单击元素的容器，甚至一层一层向外传递（也可以是向内），甚至是在单击整个页面。
 
@@ -126,16 +126,16 @@ window.addEventListener('click', function() {
 
 ```
 
-# 3、事件对象
+# 三、事件对象
 ## 1、Event对象
 在用户触发事件后，执行事件的回调函数时，默认会向该函数传入一个event对象，这个参数记录了该事件的状态和行为。
 
 ## 2、Event对象属性与方法
-### 1、Event对象常用方法
+### 2.1、Event对象常用方法
 > * event.stopPropagation()：阻止事件冒泡到父元素，阻止任何父事件处理程序被执行，从而中断冒泡。
 > * event.preventDefault()：阻止默认事件行为触发。
 
-### 2、Event对象常见属性
+### 2.2、Event对象常见属性
 > * event.type：获取事件类型名称。
 > * event.bubbles：指示事件是否冒泡，所有的冒泡都可以取消。
 > * event.cancelable：指示是否可以阻止默认事件，与冒泡无关。
@@ -168,7 +168,7 @@ console.log('e.currentTarget.id是：',e.currentTarget.id)
 
 ```
 
-# 4、事件委托
+# 四、事件委托
 ## 1、为什么要进行事件委托？
 简单设想一下，这里有一份非常非常长，且随时都会进行增删改操作的列表⬇️
 
