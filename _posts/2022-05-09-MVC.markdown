@@ -1,0 +1,148 @@
+---
+layout: post
+title:  "MVC notes"
+date:   2022-05-09 14:58:26 +0800
+categories: javascript
+---
+
+# 一、MVC 是什么
+MVC是一种架构设计模式，代表 Model-View-Controller（模型-视图-控制器） 模式。这种模式用于应用程序的分层开发.
+
+## 1、Model（模型）
+模型代表一个存取数据的对象或 JAVA POJO。它也可以带有逻辑，在数据变化时更新控制器
+
+## 2、View（视图）
+视图代表模型包含的数据的可视化。
+
+## 3、Controller（控制器）
+控制器作用于模型和视图上。它控制数据流向模型对象，并在数据变化时更新视图。它使视图与模型分离开。
+
+```javascript
+const m = {
+    data: {},
+    create() //增加
+    delete() //删除
+    update() //修改
+    get() //查看
+}
+
+const v = {
+    el: null,  // 初始化html
+    html: `代码`  //视图代码
+    ,
+    init(container) {
+        v.el = $(container)
+    },
+    render(n) { }
+}
+
+const c = {
+    init(container) {})
+    }, 
+    events: //事件 
+    add() 
+    minus() 
+    mul() 
+    div() 
+    autoBindEvents() 
+    }
+
+}
+
+```
+
+
+# 二、EventBus 是什么
+简单的说，就是一个以事件为驱动的消息服务总线，当有事件执行，就会触发
+
+## 1、EventBus API
+```on('msgName', func)```订阅消息，msgName:订阅的消息名称 func: 订阅的消息
+
+```one('msgName', func)```仅订阅一次消息，后订阅的会替换前面订阅的消息
+
+```emit('msgName', msg)```发布消息 msgName:消息名称 msg：发布的消息
+
+```off('msgName')```移除消息
+
+```javascript
+// 构造EventBus
+function EventBusClass() {
+    this.msgQueues = {}
+}
+
+EventBusClass.prototype = {
+    // 将消息保存到当前的消息队列中
+    on: function(msgName, func) {
+        if (this.msgQueues.hasOwnProperty(msgName)) {
+            if (typeof this.msgQueues[msgName] === 'function') {
+                this.msgQueues[msgName] = [this.msgQueues[msgName], func]                
+            } else {
+                this.msgQueues[msgName] = [...this.msgQueues[msgName], func]    
+            }
+        } else {
+            this.msgQueues[msgName] = func;
+        }
+    },
+    // 消息队列中仅保存一个消息
+    one: function(msgName, func) {
+        // 无需检查msgName是否存在
+        this.msgQueues[msgName] = func;
+    },
+    // 发送消息
+    emit: function(msgName, msg) {
+        if (!this.msgQueues.hasOwnProperty(msgName)) {
+            return
+        }
+        if (typeof this.msgQueues[msgName] === 'function') {
+            this.msgQueues[msgName](msg)
+        } else {
+            this.msgQueues[msgName].map((fn) => {
+                fn(msg)
+            })
+        }
+    },
+    // 移除消息
+    off: function(msgName) {
+        if (!this.msgQueues.hasOwnProperty(msgName)) {
+            return
+        }
+        delete this.msgQueues[msgName]
+    }
+}
+
+// 将EventBus放到window对象中
+const EventBus = new EventBusClass()
+window.EventBus = EventBus
+```
+
+# 三、表驱动编程是什么
+表驱动方法(Table-Driven Approach)是一种使你可以在表中查找信息，而不必用很多的逻辑语句（if或case）来把它们找出来的方法。简单的说就是用哈希表来获取值。
+
+```javascript
+c = {
+     events:{
+     'click #add1':'add',
+         'click #minus1':'minus',
+         'click #mul2':'mul',
+         'click #divide2':'div'
+     },
+     autoBindEvents(){
+         for(let key in c.events){
+             const value = c[c.events[key]]
+             const spaceIndex = key.indexOf(' ')
+             const part1 = key.slice(0, spaceIndex)
+             const part2 = key.slice(spaceIndex + 1)
+             v.el.on(part1,part2,value)
+         }
+     }
+ }
+```
+# 四、模块化的理解
+首先模块化讲的就是把东西分成一个个块，并进行组合在一起，在块的内部数据与实现是私有的, 只是向外部暴露一些接口(方法)才能与外部其它模块进行通信，这整个项目就是一个模块化的项目。
+
+模块化的好处：
+> * 更好地分离：避免一个页面中放置多个script标签，而只需加载一个需要的整体模块即可，这样对于HTML和JavaScript分离很有好处
+> * 更好的代码组织方式：有利于后期更好的维护代码
+> * 按需加载：提高使用性能，和下载速度，按需求加载需要的模块
+> * 避免命名冲突：JavaScript本身是没有命名空间，经常会有命名冲突，模块化就能使模块内的任何形式的命名都不会再和其他模块有冲突
+> * 更好的依赖处理：使用模块化，只需要在模块内部申明好依赖的就行，增加删除都直接修改模块即可，在调用的时候也不用管该模块依赖了哪些其他模块
